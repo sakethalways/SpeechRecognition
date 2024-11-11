@@ -6,7 +6,8 @@ def convert_voice_to_text():
     # Use the microphone as the source for input.
     with sr.Microphone() as source:
         print("Adjusting for ambient noise... Please wait.")
-        recognizer.adjust_for_ambient_noise(source, duration=1)  # Reduce background noise
+        recognizer.adjust_for_ambient_noise(source, duration=0.5)  # Reduce background noise
+        recognizer.energy_threshold = 300
         print("Ready! Please speak something...")
 
         # Capture the audio
